@@ -7,7 +7,31 @@
     <title>Vite + TS</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="header">
+      <h1 class="header__title">Logo</h1>
+      <a
+        class="header__link"
+        href="https://github.com/rasmus-eklund/CICD-gallery"
+        >github</a
+      >
+    </header>
+    <main class="main">
+      <div class="main__input-border">
+        <img class="input-border__img" src="" alt="" />
+        <input class="input-border__input" type="text" placeholder="Search" />
+      </div>
+      <section class="main__section">
+        <template class="section__template">
+          <div class="template__card">
+            <img class="card__img" src="" alt="Image" />
+            <span class="card__author"></span>
+          </div>
+        </template>
+      </section>
+      <div class="main__buttons">
+        <button class="buttons__prev">Prev</button><button>Next</button>
+      </div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

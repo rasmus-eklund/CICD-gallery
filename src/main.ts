@@ -1,23 +1,27 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter.ts'
+import './style.css';
+import { fetchImage } from './fetcher.ts';
+import { render } from './ui.ts';
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const input = document.querySelector(
+  '.input-border__input'
+) as HTMLInputElement;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+document.addEventListener('DOMContentLoaded', async _ev => {
+  const result = await fetchImage('cat');
+  if (result) {
+    const photos = result.results.slice(0, 9);
+    console.log(photos);
+    // render(photos);
+  }
+});
+
+input.addEventListener('keydown', async ev => {
+  if (ev.key === 'Enter') {
+    const result = await fetchImage(input.value);
+    if (result) {
+      const photos = result.results.slice(0, 9);
+      console.log(photos);
+      console.log(typeof photos[0]);
+    }
+  }
+});
