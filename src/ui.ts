@@ -4,7 +4,7 @@ import { getSearch } from './search_storage'
 const container = document.querySelector('.main__section') as HTMLElement
 
 // const renderPhoto = (photos: Photos) => {
-const renderPhoto = (photos: Photos) => {
+const renderPhoto = (photos: Photos): void => {
   clear()
   const element = document.getElementsByTagName('template')[0]
   const template = element.content
@@ -20,7 +20,7 @@ const renderPhoto = (photos: Photos) => {
       '.back__description'
     ) as HTMLParagraphElement
     img.src = photo.urls.small
-    if (photo.alt_description) {
+    if (photo.alt_description !== null) {
       img.setAttribute('alt', photo.alt_description)
     }
     backP.textContent = photo.description
@@ -29,7 +29,7 @@ const renderPhoto = (photos: Photos) => {
   })
 }
 
-const renderSearch = () => {
+const renderSearch = (): void => {
   const data = getSearch()
   if (data.length > 0) {
     const el = document.querySelector(
@@ -40,7 +40,7 @@ const renderSearch = () => {
   }
 }
 
-const clear = () => {
+const clear = (): void => {
   while (container.lastChild != null) {
     container.lastChild.remove()
   }

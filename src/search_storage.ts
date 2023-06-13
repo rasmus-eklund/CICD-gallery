@@ -1,8 +1,8 @@
 import { type Search } from './vite-env'
 
-const addSearch = (search: string) => {
+const addSearch = (search: string): void => {
   const storage = localStorage.getItem('search')
-  if (!storage) {
+  if (storage === null) {
     localStorage.setItem(
       'search',
       JSON.stringify([{ name: search, count: 1 }])
@@ -25,7 +25,7 @@ const addSearch = (search: string) => {
 
 const getSearch = (): string[] => {
   const storage = localStorage.getItem('search')
-  if (storage) {
+  if (storage !== null) {
     const data: Search[] = JSON.parse(storage)
     return data
       .sort((a, b) => b.count - a.count)

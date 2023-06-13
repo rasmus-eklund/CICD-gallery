@@ -11,21 +11,25 @@ const input = document.querySelector(
   '.input-border__input'
 ) as HTMLInputElement
 
-document.addEventListener('DOMContentLoaded', async _ev => {
-  const photos = await fetchImage('cat')
-  if (photos != null) {
-    renderPhoto(photos)
-  }
+document.addEventListener('DOMContentLoaded', _ev => {
+  fetchImage('cat')
+    .then(result => {
+      renderPhoto(result)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
 })
 
-input.addEventListener('keydown', async ev => {
+input.addEventListener('keydown', ev => {
   if (ev.key === 'Enter') {
-    const result = await fetchImage(input.value)
-    if (result != null) {
-      renderPhoto(result)
-      renderSearch()
-      addSearch(input.value)
-    }
+    fetchImage(input.value)
+      .then(result => {
+        renderPhoto(result)
+        addSearch(input.value)
+        renderSearch()
+      })
+      .catch(error => { console.log(error.message) })
   }
 })
 
