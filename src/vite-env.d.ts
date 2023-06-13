@@ -1,8 +1,8 @@
 /// <reference types="vite/client" />
 
-type Search = {
-  name: string,
+interface Search {
+  name: string
   count: number
 }
 
-export { Search }
+export type { Search }

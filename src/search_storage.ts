@@ -1,39 +1,38 @@
-import { Search } from "./vite-env";
+import { type Search } from './vite-env'
 
 const addSearch = (search: string) => {
-  const storage = localStorage.getItem("search");
+  const storage = localStorage.getItem('search')
   if (!storage) {
     localStorage.setItem(
-      "search",
+      'search',
       JSON.stringify([{ name: search, count: 1 }])
-    );
-    return;
+    )
+    return
   }
 
-  const data: Search[] = JSON.parse(storage);
-  const index = data.findIndex((item) => item.name === search);
-  if(index !== -1){
-  data[index].count++;
-} else{
-  data.push({
-    name: search,
-    count: 1,
-  })
+  const data: Search[] = JSON.parse(storage)
+  const index = data.findIndex(item => item.name === search)
+  if (index !== -1) {
+    data[index].count++
+  } else {
+    data.push({
+      name: search,
+      count: 1
+    })
+  }
+  localStorage.setItem('search', JSON.stringify(data))
 }
-localStorage.setItem("search", JSON.stringify(data));
-return;
-};
 
 const getSearch = (): string[] => {
-  const storage = localStorage.getItem("search");
+  const storage = localStorage.getItem('search')
   if (storage) {
-    const data: Search[] = JSON.parse(storage);
+    const data: Search[] = JSON.parse(storage)
     return data
       .sort((a, b) => b.count - a.count)
       .slice(0, 3)
-      .map((item) => item.name);
+      .map(item => item.name)
   }
-  return [];
-};
+  return []
+}
 
-export { addSearch, getSearch };
+export { addSearch, getSearch }
