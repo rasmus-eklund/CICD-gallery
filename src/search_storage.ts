@@ -12,8 +12,16 @@ const addSearch = (search: string) => {
 
   const data: Search[] = JSON.parse(storage);
   const index = data.findIndex((item) => item.name === search);
+  if(index !== -1){
   data[index].count++;
-  localStorage.setItem("search", JSON.stringify(data));
+} else{
+  data.push({
+    name: search,
+    count: 1,
+  })
+}
+localStorage.setItem("search", JSON.stringify(data));
+return;
 };
 
 const getSearch = (): string[] => {
