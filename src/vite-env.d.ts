@@ -1,13 +1,8 @@
 /// <reference types="vite/client" />
 
-type Photo = {
-  id: number;
-  width: number;
-  height: number;
-  urls: { large: string; regular: string; raw: string; small: string };
-  color: string | null;
-  user: {
-    username: string;
-    name: string;
-  };
-};
+type Search = {
+  name: string,
+  count: number
+}
+
+export { Search }

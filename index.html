@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script type="module" src="/src/main.ts" defer></script>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <header class="header">
-      <h1 class="header__title">Logo</h1>
-      <a
-        class="header__link"
-        href="https://github.com/rasmus-eklund/CICD-gallery"
-        >github</a
-      >
-    </header>
-    <main class="main">
-      <div class="main__input-border">
-        <img class="input-border__img" src="" alt="" />
-        <input class="input-border__input" type="text" placeholder="Search" />
+
+<head>
+  <script type="module" src="/src/main.ts" defer></script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite + TS</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="header__title">Logo</h1>
+    <a class="header__link" href="https://github.com/rasmus-eklund/CICD-gallery">github</a>
+  </header>
+  <main class="main">
+    <div class="main__input-border">
+      <img class="input-border__img" src="" alt="" />
+      <input class="input-border__input" type="text" placeholder="Search" />
+      <div class="input-border__search-history hidden">
+        <ul class="search-history__list">
+        </ul>
       </div>
-      <template>
-        <div class="template__card">
-          <img class="card__img" src="" alt="Image" />
-          <span class="card__author"></span>
-        </div>
-      </template>
-      <section class="main__section"></section>
-      <div class="main__buttons">
-        <button class="buttons__prev">Prev</button><button>Next</button>
+    </div>
+    <template>
+      <div class="template__card">
+        <img class="card__img" src="" alt="Image" />
+        <span class="card__author"></span>
       </div>
-    </main>
-    <!-- <script type="module" src="/src/main.ts"></script> -->
-  </body>
+    </template>
+    <section class="main__section"></section>
+    <div class="main__buttons">
+      <button class="buttons__prev">Prev</button><button>Next</button>
+    </div>
+  </main>
+  <!-- <script type="module" src="/src/main.ts"></script> -->
+</body>
+
 </html>
