@@ -17,9 +17,9 @@ const update = (newState: State) => {
   window.dispatchEvent(new Event('statechange'));
 };
 
-window.addEventListener('popstate', () => {
-  update(window.history.state);
-  console.log('updated!!!!!!!');
+window.addEventListener('popstate', (event) => {
+  update(event.state);
+  console.log(`Updated state ${event.state.count}`);
 });
 
 window.addEventListener('statechange', () => {

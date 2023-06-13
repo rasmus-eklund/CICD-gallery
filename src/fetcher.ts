@@ -8,8 +8,8 @@ const api = createApi({
 const fetchImage = async (query: string): Promise<Photos> => {
   const apiCall = await api.search.getPhotos({
     query,
-    page: 2,
-    perPage: 10
+    page: 1,
+    perPage: 9
   })
   console.log('made a call in fetcher!!!!!!!');
   if (apiCall.type !== 'success') throw new Error('Error retrieving photo.')

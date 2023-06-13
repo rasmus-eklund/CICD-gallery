@@ -28,13 +28,18 @@ li {
   margin-inline: 120px;
 
   .main__input-border {
+    position: relative;
     padding: 10px 60px;
     border: 1px solid gray;
     width: 100%;
-
+    .input-border__input{
+      width: 100%;
+    }
     .input-border__search-history {
-      background: red;
-      position: fixed;
+      background: rgb(39, 142, 142);
+      width: 100%;
+      position: absolute;
+      /* top: 100%; */
       z-index: 1;
     }
   }
