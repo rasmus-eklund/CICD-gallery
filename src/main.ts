@@ -9,9 +9,7 @@ const input = document.querySelector(
 document.addEventListener('DOMContentLoaded', async _ev => {
   const result = await fetchImage('cat');
   if (result) {
-    const photos = result.results.slice(0, 9);
-    console.log(photos);
-    // render(photos);
+    render(result);
   }
 });
 
@@ -19,9 +17,7 @@ input.addEventListener('keydown', async ev => {
   if (ev.key === 'Enter') {
     const result = await fetchImage(input.value);
     if (result) {
-      const photos = result.results.slice(0, 9);
-      console.log(photos);
-      console.log(typeof photos[0]);
+      render(result)
     }
   }
 });

@@ -10,10 +10,10 @@ const fetchImage = async (query: string) => {
     page: 2,
     perPage: 10,
   });
-
   if (apiCall.type === 'success') return apiCall.response;
-
-  //  return new Error('Error retrieving photo.');
 };
+
+
+//  return new Error('Error retrieving photo.');
 
 export { fetchImage };
