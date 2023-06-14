@@ -11,7 +11,7 @@ const fetchImage = async (query: string): Promise<Photos> => {
     page: 1,
     perPage: 9
   })
-  console.log('made a call in fetcher!!!!!!!');
+  console.log('made a call in fetcher!!!!!!!')
   if (apiCall.type !== 'success') throw new Error('Error retrieving photo.')
   return apiCall.response
 }

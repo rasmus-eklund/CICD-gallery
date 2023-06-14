@@ -5,9 +5,9 @@ interface Search {
   count: number
 }
 
-type State = {
-  data: Photos;
-  search: string;
-};
+interface State {
+  data: Photos
+  search: string
+}
 
 export type { Search, State }
