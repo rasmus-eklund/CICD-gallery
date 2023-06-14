@@ -1,3 +1,3 @@
-const returnFive = (): number => 5;
+const returnFive = (): number => 5
 
-export { returnFive };
+export { returnFive }

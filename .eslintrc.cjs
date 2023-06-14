@@ -13,5 +13,5 @@ module.exports = {
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/triple-slash-reference': 0
   },
-  ignorePatterns: ['**/*.test.ts', '**/cypress/**/*', "**/cypress.config.ts"],
+  ignorePatterns: ['**/*.test.ts', '**/*.config.ts'],
 }
