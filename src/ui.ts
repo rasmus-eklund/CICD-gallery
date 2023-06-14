@@ -2,7 +2,6 @@ import { type Photos } from 'unsplash-js/dist/methods/search/types/response'
 import { getSearch } from './search_storage'
 
 const container = document.querySelector('.main__section') as HTMLElement
-
 const renderPhoto = (photos: Photos): void => {
   clear()
   const element = document.getElementsByTagName('template')[0]
@@ -38,6 +37,12 @@ const renderSearch = (): void => {
       .map(item => `<li class="list__item">${item}</li>`)
       .join('')
     el.innerHTML = content
+    // el.querySelectorAll('li').forEach(li => {
+    //   li.addEventListener('click', _ev => {
+    //     console.log('went here')
+    //     input.value = li.textContent as string;
+    //   })
+    // })
   }
 }
 

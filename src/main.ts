@@ -14,9 +14,9 @@ const input = document.querySelector(
   '.input-border__input'
 ) as HTMLInputElement
 
-// const searchList = document.querySelector(
-//   '.search-history__list'
-// ) as HTMLUListElement
+const searchList = document.querySelector(
+  '.search-history__list'
+) as HTMLUListElement
 
 const image = document.querySelector('.input-border__img') as HTMLImageElement
 
@@ -81,15 +81,22 @@ input.addEventListener('focus', _ev => {
 })
 
 // This removes the above eventlistener when something else outside of the dropdown is clicked.
-// input.addEventListener('focusout', event=> {
-//   if (!searchList.contains(event.relatedTarget)) {
-//     searchList.style.display = 'none';
-//   }
-//   setTimeout(()=>{
-//     searchDropDown.classList.add('hidden')
-//   },300)
-// })
+input.addEventListener('focusout', event => {
+  if (!searchList.contains(event.relatedTarget as Node)) {
+    searchDropDown.classList.add('hidden')
+  }
+})
 
-// searchList.addEventListener('mousedown', () => {
-//   // Prevent hiding the other element when clicked inside
-// });
+searchDropDown.addEventListener('mousedown', event => {
+  const target = event.target as HTMLLIElement
+  input.value = target.textContent as string
+  fetchImage(input.value)
+    .then(result => {
+      updateState({ data: result, search: input.value })
+      addSearch(input.value)
+      renderSearch()
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+})
