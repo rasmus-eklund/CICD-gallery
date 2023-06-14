@@ -16,5 +16,4 @@ const fetchImage = async (query: string): Promise<Photos> => {
   return apiCall.response
 }
 
-
 export { fetchImage }
