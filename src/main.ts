@@ -83,3 +83,4 @@ input.addEventListener('focus', _ev => {
 input.addEventListener('blur', _ev => {
   searchDropDown.classList.add('hidden')
 })
+
