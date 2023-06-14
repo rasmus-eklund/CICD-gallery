@@ -6,7 +6,7 @@ name: pull request from dev to main
 on:
   pull_request:
     branches:
-      - development
+      - main
 
 jobs:
   build:
