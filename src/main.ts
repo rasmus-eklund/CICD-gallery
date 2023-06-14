@@ -30,7 +30,6 @@ const updateState = (newState: State): void => {
 
 // This inserts a previous search into the search box when clicked.
 const insertSearchItem = (item: string): void => {
-  console.log('clicked!')
   input.value = item
 };
 
