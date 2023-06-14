@@ -12,22 +12,19 @@ type State = {
   search: string;
 };
 
-let state: State;
-
-const update = (newState: State) => {
-  state = newState;
-  window.history.pushState(state, 'HISTORY', `index.html#${state.search}`);
-  window.dispatchEvent(new Event('statechange'));
+const updateState = (newState: State) => {
+  window.history.pushState(
+    newState,
+    'HISTORY',
+    `index.html#${newState.search}`
+  );
+  renderPhoto(newState.data);
 };
 
 window.addEventListener('popstate', () => {
-  state = window.history.state;
-  update(state);
-  console.log(`Updated state ${state.search}`);
-});
-
-window.addEventListener('statechange', () => {
+  const state = window.history.state;
   renderPhoto(state.data);
+  input.value = state.search;
 });
 
 const searchDropDown = document.querySelector(
@@ -47,12 +44,10 @@ const insertSearchItem = (item: string) => {
 document.addEventListener('DOMContentLoaded', _ev => {
   fetchImage('cat')
     .then(result => {
-      state = {
+      updateState({
         data: result,
         search: 'cat',
-      };
-      update(state);
-      // renderPhoto(result);
+      });
     })
     .catch(error => {
       console.log(error.message);
@@ -63,9 +58,7 @@ input.addEventListener('keydown', ev => {
   if (ev.key === 'Enter') {
     fetchImage(input.value)
       .then(result => {
-        state = { data: result, search: input.value };
-        update(state);
-        // renderPhoto(result);
+        updateState({ data: result, search: input.value });
         addSearch(input.value);
         renderSearch();
       })
