@@ -5,4 +5,9 @@ interface Search {
   count: number
 }
 
-export type { Search }
+type State = {
+  data: Photos;
+  search: string;
+};
+
+export type { Search, State }
