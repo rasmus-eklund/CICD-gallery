@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="CICD-gallery" />
+    
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Images</title>
+    <script type="module" crossorigin src="/assets/index-7866c821.js"></script>
+    <link rel="stylesheet" href="/assets/index-b7858c19.css">
+  </head>
+
+  <body>
+    <header class="header">
+      <h1 class="header__title">Logo</h1>
+      <a
+        class="header__link"
+        href="https://github.com/rasmus-eklund/CICD-gallery"
+        >github</a
+      >
+    </header>
+    <main class="main">
+      <div class="main__input-border">
+        <div class="input-border__inner">
+          <img class="input-border__img" src="" alt="" />
+          <input class="input-border__input" type="text" placeholder="Search" />
+        </div>
+        <div class="input-border__search-history hidden">
+          <ul class="search-history__list"></ul>
+        </div>
+      </div>
+      <template>
+        <div class="section__card">
+          <div class="card__inner">
+            <img class="inner__front" src="" alt="Image" />
+            <div class="inner__back">
+              <p class="back__description"></p>
+            </div>
+          </div>
+          <span class="card__author"></span>
+        </div>
+      </template>
+      <section class="main__section"></section>
+      <div class="main__buttons">
+        <button class="buttons__prev">Prev</button><button>Next</button>
+      </div>
+    </main>
+    <!-- <script type="module" src="/src/main.ts"></script> -->
+  </body>
+</html>
