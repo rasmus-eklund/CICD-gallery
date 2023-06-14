@@ -9,20 +9,21 @@ const image = document.querySelector('.input-border__img') as HTMLImageElement;
 image.src = searchLogo;
 type State = {
   data: Photos;
-  count: number;
+  search: string;
 };
 
 let state: State;
 
 const update = (newState: State) => {
   state = newState;
-  window.history.pushState(state, 'HISTORY', `index.html#${state.count}`);
+  window.history.pushState(state, 'HISTORY', `index.html#${state.search}`);
   window.dispatchEvent(new Event('statechange'));
 };
 
-window.addEventListener('popstate', event => {
-  update(event.state);
-  console.log(`Updated state ${event.state.count}`);
+window.addEventListener('popstate', () => {
+  state = window.history.state;
+  update(state);
+  console.log(`Updated state ${state.search}`);
 });
 
 window.addEventListener('statechange', () => {
@@ -37,12 +38,18 @@ const input = document.querySelector(
   '.input-border__input'
 ) as HTMLInputElement;
 
+const insertSearchItem = (item: string) => {
+  console.log('clicked!');
+  input.value = item;
+};
+(window as any).insertSearchItem = insertSearchItem;
+
 document.addEventListener('DOMContentLoaded', _ev => {
   fetchImage('cat')
     .then(result => {
       state = {
         data: result,
-        count: state ? state.count + 1 : 1,
+        search: 'cat',
       };
       update(state);
       // renderPhoto(result);
@@ -56,7 +63,7 @@ input.addEventListener('keydown', ev => {
   if (ev.key === 'Enter') {
     fetchImage(input.value)
       .then(result => {
-        state = { data: result, count: state.count + 1 };
+        state = { data: result, search: input.value };
         update(state);
         // renderPhoto(result);
         addSearch(input.value);
