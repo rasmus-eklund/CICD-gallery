@@ -16,7 +16,7 @@ const input = document.querySelector(
 
 const image = document.querySelector('.input-border__img') as HTMLImageElement
 
-image.src = searchLogo // This sets the image to the search logo (magnifying glass)
+image.src = searchLogo // This sets the image to the search logo (magnifying glass).
 
 // This adds the state to the history of browsing history (states) && renders them (renderPhoto).
 const updateState = (newState: State): void => {
