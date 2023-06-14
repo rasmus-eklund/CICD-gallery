@@ -14,9 +14,9 @@ const input = document.querySelector(
   '.input-border__input'
 ) as HTMLInputElement
 
-const searchList = document.querySelector(
-  '.search-history__list'
-) as HTMLUListElement
+// const searchList = document.querySelector(
+//   '.search-history__list'
+// ) as HTMLUListElement
 
 const image = document.querySelector('.input-border__img') as HTMLImageElement
 
@@ -33,7 +33,7 @@ const updateState = (newState: State): void => {
 }
 
 // This adds insertSearchItem (above function) to the dropdown list element.
-searchList.addEventListener('click', ev => {
+searchDropDown.addEventListener('click', ev => {
   console.log(ev)
   // input.value = item;
 })
@@ -81,6 +81,15 @@ input.addEventListener('focus', _ev => {
 })
 
 // This removes the above eventlistener when something else outside of the dropdown is clicked.
-input.addEventListener('blur', _ev => {
-  searchDropDown.classList.add('hidden')
-})
+// input.addEventListener('focusout', event=> {
+//   if (!searchList.contains(event.relatedTarget)) {
+//     searchList.style.display = 'none';
+//   }
+//   setTimeout(()=>{
+//     searchDropDown.classList.add('hidden')
+//   },300)
+// })
+
+// searchList.addEventListener('mousedown', () => {
+//   // Prevent hiding the other element when clicked inside
+// });
